@@ -81,32 +81,29 @@ export class AppComponent {
     //   complete: () => console.log('Completed')
     // })
     // //switchMap operator
-    // const mouseMove$ = fromEvent<MouseEvent>(document, 'mousemove');
-
-    // const switchMapped$ = mouseMove$.pipe(
-    //   switchMap(event => {
-    //     // For each mousemove event, return an observable that emits the X and Y coordinates
-    //     return from([{
-    //       x: event.clientX,
-    //       y: event.clientY
-    //     }]);
+    // Assume there's an input field with id 'input'
+    // const input: any = document.getElementById('input');
+    // var fetchData = (query: string) => {
+    //   const url = `https://api.example.com/search?q=${query}`;
+    //   return ajax.getJSON(url);
+    // }
+    // // Create an observable from input events if input exists, otherwise create an empty observable
+    // const inputObservable = fromEvent(input, 'input');
+    // inputObservable.pipe(
+    //   switchMap((event: any) => {
+    //     const query = (event.target as HTMLInputElement).value; // Type assertion to HTMLInputElement
+    //     return fetchData(query);
     //   })
-    // );
-
-    // // Subscribe to get the mapped coordinates
-    // switchMapped$.subscribe({
-    //   next: coordinates => console.log(coordinates),
-    //   error: err => console.error('Error:', err),
-    //   complete: () => console.log('Completed')
+    // ).subscribe({
+    //   next: data => {
+    //     console.log('Data received:', data);
+    //     // Do something with the received data
+    //   },
+    //   error: err => {
+    //     console.error('Error occurred:', err);
+    //     // Handle errors
+    //   }
     // });
-    // //merge operator
-    // const request1$ = ajax.getJSON('https://jsonplaceholder.typicode.com/todos/1');
-    // const request2$ = ajax.getJSON('https://jsonplaceholder.typicode.com/todos/2');
-    // const mergedObs = merge(request1$,request2$);
-    // mergedObs.subscribe({
-    //   next: value => console.log(value),
-    //   complete: () => console.log('Complete')
-    // })
     //debounceTime operator
     // Suppose you have an input field in your HTML with id="inputField"
     // const inputField: any = document.getElementById('inputField');
@@ -146,8 +143,8 @@ export class AppComponent {
     //   );
 
     // Parallel API calls
-    this.service.makeParallelApiCall().subscribe(([result1, result2, result3]) => {
-      console.log(result1, result2, result3)
-    })
+    // this.service.makeParallelApiCall().subscribe(([result1, result2, result3]) => {
+    //   console.log(result1, result2, result3)
+    // })
   }
 }
