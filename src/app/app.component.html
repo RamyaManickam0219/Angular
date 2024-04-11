@@ -1,0 +1,11 @@
+<div *ngIf="data$ | async as data">
+  {{data.title}}
+</div>
+
+<ul>
+  <li *ngFor="let user of users | sort: 'name'">
+    {{user.name}} - {{user.id}}
+  </li>
+</ul>
+
+<button (click)="addUser()">Add user</button>
