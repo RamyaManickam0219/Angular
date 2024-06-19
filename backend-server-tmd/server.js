@@ -10,7 +10,7 @@ app.use(cors()); // Use cors middleware
 
 // Example data (replace with database or actual data handling)
 let users = [
-  { id: 1, name: 'RamyaManickam', email: 'ramyamanick1998@gmail.com', location: 'Bangalore', avatarUrl: 'https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png', description: 'Angular developer with 3 years of experience who is capable of designing rrsponsive, scalable web applications. ' },
+  { id: 1, name: 'RamyaManickam', email: 'ramyamanick1998@gmail.com', location: 'Bangalore', avatarUrl: 'https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png', description: 'Angular developer with 3 years of experience who is capable of designing responsive, scalable web applications. ' },
   { id: 2, name: 'SabariGV', email: 'sabari@gmail.com', location: 'Ambur', avatarUrl: 'https://img.favpng.com/25/1/17/avatar-user-computer-icons-software-developer-png-favpng-7SbFpNeqKqhhTrrrnHFUqk6U4.jpg', description: 'SabariGV is an AR associate with 3 years of experience who is capable of delivering works with 99% quality' }
 ];
 
