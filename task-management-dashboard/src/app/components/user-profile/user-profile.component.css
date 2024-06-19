@@ -1,0 +1,72 @@
+.card {
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.image img {
+    transition: all 0.5s
+}
+
+.card:hover .image img {
+    transform: scale(1.5)
+}
+
+#userImage {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.email {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.location {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.text span {
+    font-size: 13px;
+    color: #545454;
+    font-weight: 500
+}
+
+.weather-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin-top: 50px;
+}
+
+.weather-info {
+    margin-bottom: 10px;
+}
+
+.weather-info label {
+    font-weight: bold;
+    padding: 15px;
+}
+
+.card-header {
+    text-align: center;
+    font-size: 25px;
+    border: none;
+    background-color: transparent;
+    font-weight: 500;
+}
+
+#userEdit {
+    width: 30%;
+    margin: auto;
+}

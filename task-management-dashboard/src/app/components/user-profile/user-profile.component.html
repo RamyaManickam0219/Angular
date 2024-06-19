@@ -1,0 +1,68 @@
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4 " *ngIf="!editMode && user">
+        <div class="card-header mb-3">User Profile</div>
+        <div class=" image d-flex flex-column justify-content-center align-items-center">
+            <button class="btn">
+                <img [src]="user.avatarUrl" height="100" width="100" id="userImage" />
+            </button>
+            <span class="name mt-4">{{ user.name }}</span>
+            <span class="email mt-2">{{ user.email }}</span>
+            <div class="d-flex flex-row justify-content-center align-items-center gap-2">
+                <span class="location mt-2">{{ user.location }}</span>
+            </div>
+            <div class=" d-flex mt-4"> <button class="btn btn-secondary" (click)="toggleEditMode()">Edit
+                    Profile</button> </div>
+            <div class="text mt-3">
+                <span>{{user.description}}</span>
+            </div>
+            <div class=" d-flex mt-3">
+                <button class="btn btn-info" style="color: white;" (click)="loadWeather(user.location)">Get
+                    Weather</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container mt-3 mb-5">
+    <form (ngSubmit)="updateUser()" *ngIf="editMode">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" [(ngModel)]="user.location" name="location">
+        </div>
+        <div class="mb-3">
+            <label for="profilePicture" class="form-label">Profile Picture URL</label>
+            <input type="text" id="profilePicture" class="form-control" [(ngModel)]="user.avatarUrl"
+                name="profilePicture"><br>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Profile</button>
+        <button class="btn btn-block m-1 btn-secondary" type="button" (click)="toggleEditMode()">Cancel</button>
+    </form>
+    <ng-content *ngIf="showWeatherInfo">
+        <div *ngIf="weather$ | async as weather" class="container" id="userEdit">
+            <h3 class="mt-4">Weather Info</h3>
+            <div class="weather-card bg-light">
+                <i class="fas fa-close float-end" (click)="hideWeatherInfo()"></i>
+                <div class="weather-info">
+                    <label for="temperature">Temperature:</label>
+                    <span id="temperature">{{ weather.main.temp }} °Celsius</span>
+                </div>
+                <div class="weather-info">
+                    <label for="description">Description:</label>
+                    <span id="description">{{ weather.weather[0].description }}</span>
+                </div>
+                <div class="weather-info">
+                    <label for="location">Location:</label>
+                    <span id="location">{{ weather.name }}</span>
+                </div>
+            </div>
+        </div>
+    </ng-content>
+</div>

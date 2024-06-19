@@ -1,0 +1,31 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <h2>Task List</h2>
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Description</th>
+            <th>Completed</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks$ | async">
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td><span [ngClass]="{'complete': task.completed,'incomplete': !task.completed}">{{ task.completed }}</span>
+            </td>
+            <td>
+              <button class="btn btn-sm btn-danger float-end" type="button" data-toggle="tooltip" data-placement="top"
+                title="Edit" (click)="deleteTask(task.id)">Del</button>
+              <button class="btn btn-sm btn-primary float-end me-2" type="button" data-toggle="tooltip"
+                data-placement="top" title="Delete" (click)="editTask(task)">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

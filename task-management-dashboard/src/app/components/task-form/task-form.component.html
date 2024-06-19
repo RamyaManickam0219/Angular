@@ -1,0 +1,39 @@
+<div class="container mt-3 mb-5">
+  <div class="row">
+    <div class="col">
+      <h2>{{ task.id === 0 ? 'Add Task' : 'Edit Task' }}</h2>
+      <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" [(ngModel)]="task.title" name="title" #title="ngModel"
+            required>
+          <div *ngIf="title.invalid && (title.dirty || title.touched)">
+            <div class="is-invalid" *ngIf="title.errors?.['required']">
+              Task title is required
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" id="description" [(ngModel)]="task.description" name="description"
+            #description="ngModel" required minlength="20"></textarea>
+          <div *ngIf="description.invalid && (description.dirty || description.touched)">
+            <div class="is-invalid" *ngIf="description.errors?.['required']">
+              Task description is required
+            </div>
+            <div class="is-invalid" *ngIf="description.errors?.['minlength']">
+              Task description should contain atleast 20 characters
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="completed" [(ngModel)]="task.completed" name="completed"
+            #completed="ngModel">
+          <label class="form-check-label" for="completed">Completed</label>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">{{ task.id === 0 ? 'Add' : 'Update'
+          }} Task</button>
+      </form>
+    </div>
+  </div>
+</div>

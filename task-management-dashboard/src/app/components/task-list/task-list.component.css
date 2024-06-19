@@ -1,0 +1,19 @@
+.complete {
+    background-color: green;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+    color: white;
+}
+
+.incomplete {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+table tr td:nth-child(3),
+table tr th:nth-child(3) {
+    padding: 0.7rem 0.5rem;
+}
